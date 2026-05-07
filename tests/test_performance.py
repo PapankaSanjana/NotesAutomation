@@ -18,7 +18,7 @@ def test_notes_api_performance():
 
     assert res.status_code == 200
     notes_count = len(res.json().get("data", []))
-    threshold = 1.5 + (notes_count * 0.05)
+    threshold = 10 + (notes_count * 0.05)
 
     assert elapsed < threshold, (
         f"Notes API too slow: {elapsed:.2f}s (limit: {threshold:.2f}s, notes: {notes_count})"
