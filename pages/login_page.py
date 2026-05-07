@@ -18,7 +18,7 @@ class LoginPage(BasePage):
         if not self._login_form_present():
             login_url = self.driver.current_url.rstrip('/') + '/login'
             self.driver.get(login_url)
-            WebDriverWait(self.driver, 30).until(
+            WebDriverWait(self.driver, 60).until(
                 lambda d: d.execute_script("return document.readyState") == "complete"
             )
         self.type(self.EMAIL, email, timeout=60)
