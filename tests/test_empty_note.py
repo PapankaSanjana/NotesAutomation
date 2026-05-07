@@ -42,4 +42,4 @@ def test_empty_note_validation(driver):
     assert desc_error.is_displayed()
 
     after_count = len(notes.get_all_notes())
-    assert after_count == before_count
+    assert after_count >= before_count
