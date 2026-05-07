@@ -4,4 +4,4 @@
 "password": "123456789"
 "timeout": 15
 "performance_threshold": 1.5
-"ui_login_threshold": 40
+"ui_login_threshold": 50
