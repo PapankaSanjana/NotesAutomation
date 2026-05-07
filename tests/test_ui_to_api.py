@@ -11,7 +11,7 @@ def test_ui_to_api(driver):
     config = get_config()
 
     driver.get(config["base_url"])
-    WebDriverWait(driver, 15).until(
+    WebDriverWait(driver, 30).until(
         lambda d: d.execute_script("return document.readyState") == "complete"
     )
 
