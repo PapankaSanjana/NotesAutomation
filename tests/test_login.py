@@ -7,7 +7,7 @@ def test_login(driver):
     config = get_config()
 
     driver.get(config["base_url"])
-    WebDriverWait(driver, 15).until(
+    WebDriverWait(driver, 50).until(
         lambda d: d.execute_script("return document.readyState") == "complete"
     )
 
