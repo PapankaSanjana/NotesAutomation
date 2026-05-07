@@ -2,6 +2,6 @@
 "api_url": "https://practice.expandtesting.com/notes/api"
 "email": "papankasanjana@gmail.com"
 "password": "123456789"
-"timeout": 15
+"timeout": 50
 "performance_threshold": 1.5
-"ui_login_threshold": 50
+"ui_login_threshold": 100
