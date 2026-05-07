@@ -23,6 +23,6 @@ def get_driver():
     )
 
     driver.maximize_window()
-    driver.implicitly_wait(10)
+    driver.implicitly_wait(50)
 
     return driver
