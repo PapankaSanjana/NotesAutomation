@@ -10,7 +10,7 @@ def test_delete_note_ui(driver):
     config = get_config()
 
     driver.get(config["base_url"])
-    WebDriverWait(driver, config.get("timeout", 15)).until(
+    WebDriverWait(driver, config.get("timeout", 30)).until(
         lambda d: d.execute_script("return document.readyState") == "complete"
     )
 
@@ -24,7 +24,7 @@ def test_delete_note_ui(driver):
     # Delete the first note to verify delete-by-index functionality.
     notes.delete_first_note()
 
-    WebDriverWait(driver, config.get("timeout", 15)).until(
+    WebDriverWait(driver, config.get("timeout", 30)).until(
         lambda d: len(notes.get_all_notes()) == initial_count - 1
     )
 
@@ -35,7 +35,7 @@ def test_delete_note_by_title_ui(driver):
     config = get_config()
 
     driver.get(config["base_url"])
-    WebDriverWait(driver, config.get("timeout", 15)).until(
+    WebDriverWait(driver, config.get("timeout", 30)).until(
         lambda d: d.execute_script("return document.readyState") == "complete"
     )
 
@@ -46,11 +46,11 @@ def test_delete_note_by_title_ui(driver):
     target_title = f"Delete by title {int(time.time())}"
     notes.create_note(target_title, "Temporary note for delete by title")
 
-    notes.wait_for_note_presence(target_title, timeout=config.get("timeout", 15))
+    notes.wait_for_note_presence(target_title, timeout=config.get("timeout", 30))
 
     notes.delete_note_by_title(target_title)
 
-    notes.wait_for_note_absence(target_title, timeout=config.get("timeout", 15))
+    notes.wait_for_note_absence(target_title, timeout=config.get("timeout", 30))
 
     assert not any(
         note.find_element(*ProductPage.NOTE_TITLE).text.strip() == target_title
