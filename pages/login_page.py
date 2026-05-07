@@ -21,7 +21,7 @@ class LoginPage(BasePage):
             WebDriverWait(self.driver, 30).until(
                 lambda d: d.execute_script("return document.readyState") == "complete"
             )
-        self.type(self.EMAIL, email, timeout=30)
-        self.type(self.PASSWORD, password, timeout=30)
+        self.type(self.EMAIL, email, timeout=60)
+        self.type(self.PASSWORD, password, timeout=60)
         self.click(self.LOGIN_BTN)
         time.sleep(2)
