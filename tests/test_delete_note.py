@@ -19,9 +19,18 @@ def test_delete_note_ui(driver):
 
     notes = ProductPage(driver)
     initial_count = len(notes.get_all_notes())
+    # create temporary note if none exist
+    if initial_count == 0:
+        notes.create_note(
+        "Temporary Delete Note",
+        "Temporary Description"
+        )
+        WebDriverWait(driver, 60).until(
+        lambda d: len(notes.get_all_notes()) > 0
+        )
+        initial_count = len(notes.get_all_notes())
     assert initial_count > 0
-
-    # Delete the first note to verify delete-by-index functionality.
+    # delete first note
     notes.delete_first_note()
 
     WebDriverWait(driver, config.get("timeout", 30)).until(
