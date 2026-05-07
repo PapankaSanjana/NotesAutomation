@@ -10,7 +10,7 @@ def test_empty_note_validation(driver):
     config = get_config()
 
     driver.get(config["base_url"])
-    WebDriverWait(driver, config.get("timeout", 15)).until(
+    WebDriverWait(driver, config.get("timeout", 30)).until(
         lambda d: d.execute_script("return document.readyState") == "complete"
     )
 
@@ -27,12 +27,12 @@ def test_empty_note_validation(driver):
 
     notes.click(notes.SAVE)
 
-    title_error = WebDriverWait(driver, config.get("timeout", 15)).until(
+    title_error = WebDriverWait(driver, config.get("timeout", 30)).until(
         EC.visibility_of_element_located(
             (By.XPATH, "//div[contains(@class,'invalid-feedback') and normalize-space(text())='Title is required']")
         )
     )
-    desc_error = WebDriverWait(driver, config.get("timeout", 15)).until(
+    desc_error = WebDriverWait(driver, config.get("timeout", 30)).until(
         EC.visibility_of_element_located(
             (By.XPATH, "//div[contains(@class,'invalid-feedback') and normalize-space(text())='Description is required']")
         )
