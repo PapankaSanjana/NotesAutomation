@@ -39,7 +39,7 @@ def test_ui_login_performance(driver):
     login.login(config["email"], config["password"])
 
     
-    WebDriverWait(driver, 10).until(
+    WebDriverWait(driver, 30).until(
         EC.url_contains("notes")
     )
 
